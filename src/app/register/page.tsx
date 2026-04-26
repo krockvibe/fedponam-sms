@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -65,9 +66,7 @@ export default function RegisterPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-10">
           <Link href="/" className="inline-flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-[#8d4d4a] rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-xl">F</span>
-            </div>
+            <Image unoptimized src="/logo.png" alt="FEDPONAM" width={48} height={48} className="rounded-lg" />
             <div>
               <h1 className="text-2xl font-bold text-[#1a1a1a]">FEDPONAM</h1>
               <p className="text-[#8d4d4a] text-sm font-medium">School Management</p>

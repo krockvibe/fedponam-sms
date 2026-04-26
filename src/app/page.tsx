@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function HomePage() {
@@ -5,9 +6,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#faf8f5]">
       <header className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-[#8d4d4a] rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-xl">F</span>
-          </div>
+          <Image unoptimized src="/logo.png" alt="FEDPONAM" width={48} height={48} className="rounded-lg" />
           <div>
             <h1 className="text-xl font-bold text-[#1a1a1a] tracking-tight">FEDPONAM</h1>
             <p className="text-[#8d4d4a] text-xs font-medium">School Management</p>
@@ -153,10 +152,8 @@ export default function HomePage() {
 
       <footer className="border-t border-[#f5f0eb] py-12 mt-20">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-[#8d4d4a] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">F</span>
-            </div>
+          <div className="flex items-center gap-3">
+            <Image unoptimized src="/logo.png" alt="FEDPONAM" width={32} height={32} className="rounded-lg" />
             <span className="font-semibold text-[#1a1a1a]">FEDPONAM</span>
           </div>
           <p className="text-[#64748b] text-sm">© 2026 FEDPONAM School Management System. All rights reserved.</p>

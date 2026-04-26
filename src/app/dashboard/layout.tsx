@@ -1,6 +1,7 @@
 'use client';
 
 import { ReactNode } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
@@ -34,9 +35,7 @@ export default function DashboardLayout({ children }: LayoutProps) {
       <aside className="w-72 bg-[#1a1a1a] text-white flex flex-col fixed h-full shadow-2xl">
         <div className="p-8 border-b border-white/10">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 bg-[#8d4d4a] rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-xl">F</span>
-            </div>
+            <Image unoptimized src="/logo.png" alt="FEDPONAM" width={48} height={48} className="rounded-xl" />
             <div>
               <h1 className="text-xl font-bold tracking-tight">FEDPONAM</h1>
               <p className="text-[#8d4d4a] text-xs font-medium">Management System</p>
