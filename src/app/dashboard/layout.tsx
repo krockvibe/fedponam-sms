@@ -29,25 +29,33 @@ export default function DashboardLayout({ children }: LayoutProps) {
   };
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-[#faf8f5]">
       {/* Sidebar */}
-      <aside className="w-64 bg-slate-900 text-white flex flex-col fixed h-full">
-        <div className="p-6 border-b border-slate-800">
-          <h1 className="text-xl font-bold text-blue-400">FEDPONAM</h1>
-          <p className="text-xs text-slate-400">School Management</p>
+      <aside className="w-72 bg-[#1a1a1a] text-white flex flex-col fixed h-full shadow-2xl">
+        <div className="p-8 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 bg-[#8d4d4a] rounded-xl flex items-center justify-center">
+              <span className="text-white font-bold text-xl">F</span>
+            </div>
+            <div>
+              <h1 className="text-xl font-bold tracking-tight">FEDPONAM</h1>
+              <p className="text-[#8d4d4a] text-xs font-medium">Management System</p>
+            </div>
+          </div>
         </div>
 
-        <nav className="flex-1 p-4 space-y-1">
+        <nav className="flex-1 p-5 space-y-1">
+          <p className="text-xs font-semibold text-white/40 uppercase tracking-wider mb-4 px-4">Main Menu</p>
           {navigation.map((item) => {
             const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
             return (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex items-center px-4 py-3 rounded-lg transition-all ${
+                className={`flex items-center px-4 py-3.5 rounded-xl transition-all duration-200 ${
                   isActive
-                    ? 'bg-blue-600 text-white'
-                    : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                    ? 'bg-[#8d4d4a] text-white shadow-lg'
+                    : 'text-white/60 hover:bg-white/5 hover:text-white'
                 }`}
               >
                 <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,10 +67,10 @@ export default function DashboardLayout({ children }: LayoutProps) {
           })}
         </nav>
 
-        <div className="p-4 border-t border-slate-800">
+        <div className="p-5 border-t border-white/10">
           <button
             onClick={handleSignOut}
-            className="flex items-center w-full px-4 py-3 text-slate-400 hover:bg-slate-800 hover:text-white rounded-lg transition-all"
+            className="flex items-center w-full px-4 py-3.5 text-white/60 hover:bg-white/5 hover:text-white rounded-xl transition-all"
           >
             <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -73,22 +81,25 @@ export default function DashboardLayout({ children }: LayoutProps) {
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 ml-64">
+      <div className="flex-1 ml-72">
         {/* Header */}
-        <header className="bg-white border-b border-slate-200 px-8 py-4 flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-slate-800">
+        <header className="bg-white border-b border-[#f5f0eb] px-10 py-6 flex justify-between items-center shadow-sm">
+          <h2 className="text-xl font-bold text-[#1a1a1a]">
             {navigation.find(n => pathname.startsWith(n.href))?.name || 'Dashboard'}
           </h2>
           <div className="flex items-center gap-4">
-            <span className="text-sm text-slate-600">{session?.user?.name || 'User'}</span>
-            <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
+            <div className="text-right">
+              <p className="text-sm font-semibold text-[#1a1a1a]">{session?.user?.name || 'User'}</p>
+              <p className="text-xs text-[#64748b] capitalize">{session?.user?.role || 'User'}</p>
+            </div>
+            <div className="w-12 h-12 bg-[#8d4d4a] rounded-xl flex items-center justify-center text-white font-bold text-lg">
               {session?.user?.name?.charAt(0) || 'U'}
             </div>
           </div>
         </header>
 
         {/* Page Content */}
-        <main className="p-8">{children}</main>
+        <main className="p-10">{children}</main>
       </div>
     </div>
   );
